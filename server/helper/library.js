@@ -1,0 +1,1 @@
+//Here, we write repeteted functions like Time stamp and so on.
