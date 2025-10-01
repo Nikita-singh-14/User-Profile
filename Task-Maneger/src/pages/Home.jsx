@@ -22,7 +22,7 @@ const Home = () => {
 
     const fetchProduct = async (e) => {
         try {
-            const url = 'http://localhost:8080/products';
+            const url = 'https://user-profile-git-main-nikita-singhs-projects-d95487a1.vercel.app/products';
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
