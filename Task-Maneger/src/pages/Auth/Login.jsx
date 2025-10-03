@@ -23,7 +23,7 @@ const Login = ({setIsAuthenticated}) => {
                     return handleError('email, and password are required')
                 }
                 try{
-                    const url = 'https://user-profile-git-main-nikita-singhs-projects-d95487a1.vercel.app/auth/login';
+                    const url = 'https://user-profile-iota.vercel.app/auth/login';
                     const response = await fetch(url, {
                         method:"POST",
                         headers:{
