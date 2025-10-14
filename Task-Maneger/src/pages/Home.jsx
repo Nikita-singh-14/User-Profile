@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { handleError, handleSuccess } from '../utils/Toast';
 import { ToastContainer } from 'react-toastify';
+import Navbar from './Navbar';
+import HotelsData from './HotelsData';
+import Footer from './Footer';
 const Home = () => {
     const [loggedInUser, setLoggedInUser] = useState('');
     const [products, setProducts] = useState([]);
+    
     useEffect(() => {
         setLoggedInUser(localStorage.getItem('loggedInUser'));
     }, []);
@@ -48,23 +52,31 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='flex flex-col justify-center items-center'>
-            <h1>Welcome {loggedInUser}</h1>
-            <button onClick={handleLogout}
-                className='bg-red-500 hover:bg-red-400  rounded md:rounded-lg w-[5rem]  cursor-pointer'>
-                Logout
-            </button>
-            <div>
-                {
-                    products?.map((item, index) => (
-                        <ul key={index}>
-                            <span>{item.name} : {item.price} </span>
-                        </ul>
-                    ))
-                }
-            </div>
-            <ToastContainer />
+        <div>
+            <Navbar/>
+            <HotelsData/>
+            <Footer/>
         </div>
+
+
+        //<div className='flex flex-col justify-center items-center'>
+          
+          //  <h1>Welcome {loggedInUser}</h1>
+            //<button onClick={handleLogout}
+              //  className='bg-red-500 hover:bg-red-400  rounded md:rounded-lg w-[5rem]  cursor-pointer'>
+                //Logout
+            //</button>
+            //<div>
+              //  {
+                //    products?.map((item, index) => (
+                  //      <ul key={index}>
+                    //        <span>{item.name} : {item.price} </span>
+                      //  </ul>
+                    //))
+               // }
+            //</div>
+         //   <ToastContainer />
+       // </div>
     )
 }
 
