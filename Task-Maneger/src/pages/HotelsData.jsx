@@ -40,7 +40,7 @@ const HotelsData = () => {
             style={{ 
               border: '1px solid #ccc', 
               padding: '15px', 
-              width: '300px',
+              width: '500px',
               borderRadius: '8px' 
             }}
             className='hover:opacity-50'

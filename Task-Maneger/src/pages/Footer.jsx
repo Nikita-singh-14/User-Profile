@@ -1,25 +1,132 @@
-import React from 'react'
-import { CiGlobe } from "react-icons/ci";
+import React from 'react';
+import { Facebook, Twitter, Youtube, Globe } from 'lucide-react';
+
+// Define the custom colors used in the original design
+const customColors = {
+  main: '#6aa84f', // Main body of the footer
+  dark: '#5c8b42', // Bottom copyright bar
+};
+
+// Data structure for the footer links (easily replaced by Mongoose/MongoDB data)
+const footerData = {
+  company: {
+    title: 'Company Info',
+    links: ['About Us', 'Contact Us', 'Cancellation Policy', 'Privacy Policy'],
+  },
+  tours: {
+    title: 'Our Tours',
+    links: ['South Goa bus tour', 'Scuba dive with water sports', 'North Goa City Tour', 'Adventure Boat Trip'],
+  },
+  office: {
+    title: 'Goa Office',
+    addressLines: [
+      '157, Dream Adventure opp',
+      'Candolim Panchayat, Candolim',
+      'Beach Road, Goa - 403516',
+    ],
+  },
+  support: {
+    title: 'Support Info',
+    availability: 'We are available 24*7.',
+    phone1: '+91 9657052224',
+    email: 'info@dreamadventure.in',
+    phone2: '+919657052221',
+  },
+};
+
+const SocialIcon = ({ Icon, label }) => (
+  <a 
+    href="#" 
+    aria-label={label} 
+    className="w-10 h-10 flex items-center justify-center bg-white text-xl rounded-full transition duration-300 shadow-md"
+    style={{ color: customColors.main }}
+  >
+    <Icon size={20} />
+  </a>
+);
+
+
 const Footer = () => {
+  const { company, tours, office, support } = footerData;
+
   return (
-    <div className=' bottom-0 w-full bg-white border-t border-gray-200 z-10 h-15'>
-      <div className='max-w-[1700px] mx-auto px-10 py-4 text-sm sm:flex flex-col justify-center gap-5 items-center'>
-        <div className='sm:flex flex-col max-w-[1700px] mx-auto px-10 py-4 text-sm gap-2 items-center justify-center'>
-          <p className='order-2 md:order-1 text-gray-700'>@ 2025 Airbnb, Inc.</p>
-          <ul className='flex gap-2 order-1 md:order-2 text-gray-700'>
-            <li className='hover:underline cursor-pointer'>Privacy</li>
-            <li className='hover:underline cursor-pointer'>Terms</li>
-            <li className='hover:underline cursor-pointer'>Sidemap</li>
-            <li className='hover:underline cursor-pointer'>Company details</li>
-          </ul>
+    <footer className="font-sans shadow-2xl" style={{ backgroundColor: customColors.main }}>
+      <div className="container mx-auto px-4 py-12 md:px-8 text-white">
+        
+        {/* Main Grid Section (4 Columns for Desktop, 2 Columns for Tablet/Mobile) */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Column 1: Company Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">{company.title}</h3>
+            <ul className="space-y-2 text-sm">
+              {company.links.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="hover:underline">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 2: Our Tours */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">{tours.title}</h3>
+            <ul className="space-y-2 text-sm">
+              {tours.links.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="hover:underline">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Goa Office */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">{office.title}</h3>
+            <address className="text-sm not-italic space-y-1">
+              {office.addressLines.map((line, index) => (
+                <span key={index} className="block">{line}</span>
+              ))}
+            </address>
+          </div>
+
+          {/* Column 4: Support Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">{support.title}</h3>
+            <p className="text-sm">
+              <span className="block mb-2">{support.availability}</span>
+              <span className="block font-medium">{support.phone1}</span>
+              <a href={`mailto:${support.email}`} className="block hover:underline">{support.email}</a>
+              <span className="block">{support.phone2}</span>
+            </p>
+          </div>
+
         </div>
-        <div className='flex items-center justify-center'>
-          <CiGlobe />
-          <p>English(IN)</p>
+
+        {/* Separator and Social Icons */}
+        <div className="mt-10 pt-6 flex justify-center items-center" style={{ borderTop: `1px solid ${customColors.dark}` }}>
+          <div className="flex space-x-4">
+            <SocialIcon Icon={Facebook} label="Facebook" />
+            <SocialIcon Icon={Twitter} label="Twitter" />
+            {/* Using Globe as a conceptual stand-in for the custom TripAdvisor icon */}
+            <SocialIcon Icon={Globe} label="TripAdvisor" /> 
+            <SocialIcon Icon={Youtube} label="YouTube" />
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
 
-export default Footer
+      {/* Copyright Bottom Bar */}
+      <div className="py-4 text-center text-sm text-white" style={{ backgroundColor: customColors.dark }}>
+        <p className="px-4">
+          Online booking system by <span className="font-bold">Vacation Labs</span> | © 2025 <span className="font-bold">Dream Adventure</span>
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
