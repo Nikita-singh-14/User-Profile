@@ -50,8 +50,8 @@ const Footer = () => {
   const { company, tours, office, support } = footerData;
 
   return (
-    <footer className="font-sans shadow-2xl" style={{ backgroundColor: customColors.main }}>
-      <div className="container mx-auto px-4 py-12 md:px-8 text-white">
+    <footer className=" flex flex-col justify-center items-center font-sans shadow-2xl" style={{ backgroundColor: customColors.main }}>
+      <div className="container mx-auto px-4 py-12 md:px-8 text-white flex flex-col gap-5">
         
         {/* Main Grid Section (4 Columns for Desktop, 2 Columns for Tablet/Mobile) */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -107,20 +107,19 @@ const Footer = () => {
 
         </div>
 
-        {/* Separator and Social Icons */}
-        <div className="mt-10 pt-6 flex justify-center items-center" style={{ borderTop: `1px solid ${customColors.dark}` }}>
-          <div className="flex space-x-4">
+       
+        <div className="mt-10 pt-6 flex justify-center items-center w-full " style={{ borderTop: `1px solid ${customColors.dark}` }}>
+          <div className="flex space-x-4 gap-8">
             <SocialIcon Icon={Facebook} label="Facebook" />
             <SocialIcon Icon={Twitter} label="Twitter" />
-            {/* Using Globe as a conceptual stand-in for the custom TripAdvisor icon */}
             <SocialIcon Icon={Globe} label="TripAdvisor" /> 
             <SocialIcon Icon={Youtube} label="YouTube" />
           </div>
         </div>
       </div>
 
-      {/* Copyright Bottom Bar */}
-      <div className="py-4 text-center text-sm text-white" style={{ backgroundColor: customColors.dark }}>
+
+      <div className="py-4 justify-center items-center flex  h-[5rem] text-center text-lg text-white" style={{ backgroundColor: customColors.dark }}>
         <p className="px-4">
           Online booking system by <span className="font-bold">Vacation Labs</span> | © 2025 <span className="font-bold">Dream Adventure</span>
         </p>

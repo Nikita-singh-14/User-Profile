@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className='flex justify-between h-[5rem] items-center'>
             <div className='flex text-red-500 text-2xl items-center'>
                 <FaAirbnb />
-                <b>airbnb</b>
+                <b>Tripforlife</b>
             </div>
             <div className='lg:flex  hidden gap-7'>
                 <div className='flex items-center gap-1 cursor-pointer'>
