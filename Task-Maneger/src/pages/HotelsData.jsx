@@ -30,8 +30,8 @@ const HotelsData = () => {
   }
 
   return (
-    <div className='hotel'>
-      <h4>Popular homes in india</h4>
+    <div className='hotel flex flex-col gap-5'>
+      <h1>Goa Tours Packages</h1>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between'}} >
         {hotels.map((hotel) => (
@@ -40,10 +40,10 @@ const HotelsData = () => {
             style={{ 
               border: '1px solid #ccc', 
               padding: '15px', 
-              width: '500px',
+              width: '300px',
               borderRadius: '8px' 
             }}
-            className='hover:opacity-50'
+            className='hover:opacity-50 pad'
           >
             <img src={hotel.imageUrl} alt="" style={{ width: '100%', height: 'auto', borderRadius: '4px' }}/>
             <h5 style={{ margin: '10px 0 5px 0' }}>{hotel.name}</h5>

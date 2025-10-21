@@ -50,16 +50,15 @@ const Footer = () => {
   const { company, tours, office, support } = footerData;
 
   return (
-    <footer className=" flex flex-col justify-center items-center font-sans shadow-2xl" style={{ backgroundColor: customColors.main }}>
-      <div className="container mx-auto px-4 py-12 md:px-8 text-white flex flex-col gap-5">
+    <footer className=" pad flex flex-col justify-center items-center font-sans shadow-2xl" style={{ backgroundColor: customColors.main }}>
+      <div className="container mx-auto px-4 py-12 md:px-8 text-white flex flex-col gap-10">
         
-        {/* Main Grid Section (4 Columns for Desktop, 2 Columns for Tablet/Mobile) */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Column 1: Company Info */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col gap-2">
             <h3 className="text-xl font-bold mb-4">{company.title}</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm flex flex-col gap-4">
               {company.links.map((link, index) => (
                 <li key={index}>
                   <a href="#" className="hover:underline">
@@ -71,9 +70,9 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Our Tours */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col gap-2">
             <h3 className="text-xl font-bold mb-4">{tours.title}</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm flex flex-col gap-4">
               {tours.links.map((link, index) => (
                 <li key={index}>
                   <a href="#" className="hover:underline">
@@ -85,9 +84,9 @@ const Footer = () => {
           </div>
 
           {/* Column 3: Goa Office */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col gap-2">
             <h3 className="text-xl font-bold mb-4">{office.title}</h3>
-            <address className="text-sm not-italic space-y-1">
+            <address className="text-sm not-italic space-y-1 flex flex-col gap-4">
               {office.addressLines.map((line, index) => (
                 <span key={index} className="block">{line}</span>
               ))}
@@ -95,9 +94,9 @@ const Footer = () => {
           </div>
 
           {/* Column 4: Support Info */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col gap-2">
             <h3 className="text-xl font-bold mb-4">{support.title}</h3>
-            <p className="text-sm">
+            <p className="text-sm flex flex-col gap-4">
               <span className="block mb-2">{support.availability}</span>
               <span className="block font-medium">{support.phone1}</span>
               <a href={`mailto:${support.email}`} className="block hover:underline">{support.email}</a>
@@ -108,7 +107,7 @@ const Footer = () => {
         </div>
 
        
-        <div className="mt-10 pt-6 flex justify-center items-center w-full " style={{ borderTop: `1px solid ${customColors.dark}` }}>
+        <div className="mt-10 pt-6 flex justify-center items-center w-full" >
           <div className="flex space-x-4 gap-8">
             <SocialIcon Icon={Facebook} label="Facebook" />
             <SocialIcon Icon={Twitter} label="Twitter" />
@@ -119,7 +118,7 @@ const Footer = () => {
       </div>
 
 
-      <div className="py-4 justify-center items-center flex  h-[5rem] text-center text-lg text-white" style={{ backgroundColor: customColors.dark }}>
+      <div className="py-4 justify-center items-center flex  h-[5rem] text-center text-lg text-white" >
         <p className="px-4">
           Online booking system by <span className="font-bold">Vacation Labs</span> | © 2025 <span className="font-bold">Dream Adventure</span>
         </p>
