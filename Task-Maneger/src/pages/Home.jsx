@@ -34,7 +34,6 @@ const Home = () => {
             }
             const response = await fetch(url, headers);
             const result = await response.json();
-            //ye khud se likha hai  ese likhne par code sahi se kam karne laga.
             if (Array.isArray(result)) {
                 setProducts(result);
             } else {
