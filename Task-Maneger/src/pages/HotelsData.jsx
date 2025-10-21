@@ -9,7 +9,7 @@ const HotelsData = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('https://user-profile-iota.vercel.app/api/hotels'); 
+        const response = await axios.get('https://user-profile-iota.vercel.app/hotels'); 
         setHotels(response.data);
         setLoading(false);
       } catch (err) {
