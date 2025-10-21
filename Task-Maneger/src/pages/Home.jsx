@@ -26,7 +26,7 @@ const Home = () => {
 
     const fetchProduct = async (e) => {
         try {
-            const url = 'http://localhost:8080/products';
+            const url = 'https://user-profile-iota.vercel.app/products';
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
