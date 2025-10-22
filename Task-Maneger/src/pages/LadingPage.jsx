@@ -183,7 +183,7 @@ const LadingPage = () => {
                     <div className='hr'></div>
                     <div className="container mx-auto px-4 relative">
                         {loading ? renderLoader() : (
-                            <div className="flex gap-10 space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+                            <div className="flex flex-wrap gap-5 space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                                 {activities.slice(0, 3).map(activity => (
                                     <div key={activity.id} className="snap-start">
                                         <ActivityCard {...activity} />
@@ -221,7 +221,7 @@ const LadingPage = () => {
                     <div className='hr'></div>
                     <div className="container mx-auto px-4 relative flex gap-10">
                         {loading ? renderLoader() : (
-                            <div className="flex gap-10 space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+                            <div className="flex flex-wrap gap-10 space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                                 {activities.slice(3).map(activity => (
                                     <div key={activity.id} className="snap-start">
                                         <ActivityCard {...activity} />
