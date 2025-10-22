@@ -48,5 +48,11 @@ body {
   font-size: 2rem;
 }
 .pad{
-  padding-top: 2rem;
+  padding-top: 2rem ;
 }
+.hr{
+  height: 1px;
+  width: 15rem;
+  background-color: #1a1a1a;
+}
+

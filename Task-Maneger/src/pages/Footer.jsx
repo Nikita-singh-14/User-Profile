@@ -118,7 +118,13 @@ const Footer = () => {
       </div>
 
 
+       <div className='w-full h-[1px] bg-white'></div>
+
+     
+
+
       <div className="py-4 justify-center items-center flex  h-[5rem] text-center text-lg text-white" >
+        
         <p className="px-4">
           Online booking system by <span className="font-bold">Vacation Labs</span> | © 2025 <span className="font-bold">Dream Adventure</span>
         </p>

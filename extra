@@ -38,3 +38,133 @@ export default Footer
     "lint": "eslint .",
     "preview": "vite preview"
   },
+
+
+
+  //hotels.js 
+  const jwt = require('jsonwebtoken');
+  const ensureAuthenticated = (req, res, next) => {
+      const auth = req.headers['authorization'];
+      if(!auth){
+          return res.status(403)
+          .json({message:"Unauthorized, JWT token is required"});
+      }
+      try {
+          const decodedData = jwt.verify(auth, process.env.JWT_SECRET);
+          req.user = decodedData;
+          next();
+      } catch (error) {
+          return res.status(403)
+          .json({message:'Unauthorized, JWT ttoken wrong or expired'});
+      }
+  }
+  module.exports = ensureAuthenticated;
+
+
+
+
+  <header className="absolute top-0 left-0 right-0 z-20 p-4">
+          <div className="container mx-auto flex justify-between items-center">
+              {/* Logo: Click to redirect to the root path (/) */}
+              <Link to="/" className="text-3xl font-bold text-white tracking-widest hover:text-yellow-400 transition">
+                  Dream<span className="text-yellow-400">Adv</span>
+              </Link>
+              
+              {/* Desktop Menu */}
+              <nav className="hidden md:flex space-x-6 text-white text-lg font-medium">
+                  {/* Use Link for all internal navigation */}
+                  <Link to="/" className="hover:text-yellow-400 transition">Home</Link>
+                  
+                  
+                  <Link to="/packages" className="hover:text-yellow-400 transition">Packages</Link>
+                  <Link to="/activities" className="hover:text-yellow-400 transition">Activities</Link>
+                  <Link to="/contact" className="hover:text-yellow-400 transition">Contact</Link>
+              </nav>
+              {/* Mobile Menu Icon */}
+              <button className="md:hidden p-2 text-white">
+                  <Menu size={24} />
+              </button>
+          </div>
+      </header>
+
+
+
+
+
+import React from 'react'
+import { FaAirbnb } from "react-icons/fa";
+import { IoIosHome } from "react-icons/io";
+import { FaGolfBall } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { FaServicestack } from "react-icons/fa6";
+import { CiGlobe } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
+import DarkMode from '../component/DarkMode';
+import { Link } from 'react-router-dom';
+import { Menu } from 'lucide-react';
+const Navbar = () => {
+  return (
+    <div className='h-[10rem] text-sm top-0 sticky shadow-2xl nav' style={{ background: 'var(--bg-color)', zIndex: 1000}}>
+        <div className='flex justify-between h-[5rem] items-center'>
+            <div className='flex text-red-500 text-2xl items-center'>
+                <FaAirbnb />
+                <b>Tripforlife</b>
+            </div>
+
+            <div className='lg:flex  hidden gap-7'>
+                <div className='flex items-center gap-1 cursor-pointer'>
+                    <IoIosHome className='text-red-500 text-4xl' />
+                    <h4 style={{ color: 'var(--text-color)' }}>Homes</h4>
+                </div>
+
+                <div className='flex items-center gap-1 cursor-pointer'>
+                    <FaGolfBall className='text-red-500 text-2xl'/>
+                    <h4 style={{ color: 'var(--text-color)' }}>Exprences</h4>
+                </div>
+                <div className='flex items-center gap-1 cursor-pointer'>
+                    <FaServicestack className='text-red-500 text-2xl'/>
+                    <h4>services</h4>
+                </div>
+            </div>
+            <div className='sm:flex hidden items-center gap-5'>
+                <p className='w-[8rem] h-[2rem] rounded-full items-center flex justify-center hover:bg-gray-200  cursor-pointer'>Become a host</p>
+                <div className='w-[2rem] h-[2rem]  rounded-full items-center flex justify-center text-lg hover:bg-gray-200  cursor-pointer'
+                style={{ color: 'var(--text-color)' }}><CiGlobe /></div>
+                <div className="flex items-center gap-4 text-2xl text-gray-700">
+                    <DarkMode/>
+                </div>
+                
+            </div>
+            <div className='w-[2rem] h-[2rem] rounded-full items-center flex justify-center text-lg hover:bg-gray-200  cursor-pointer'
+                style={{ color: 'var(--text-color)' }}><RxHamburgerMenu /></div>
+        </div>
+
+        <div className='flex justify-center '>
+        <div className='md:flex hidden border rounded-full w-full max-w-2xl shadow-md p-1 items-center'>
+            <div className='flex flex-col justify-center items-center flex-grow px-10 py-4 w-[15rem] h-[3.5rem] hover:bg-gray-200 rounded-full cursor-pointer'>
+                <p>Where</p>
+                <h6>Search destination</h6>
+            </div>
+            <div className='flex flex-col justify-center items-center flex-grow px-7 py-4 w-[8rem] h-[3.5rem] hover:bg-gray-200  rounded-full cursor-pointer'>
+                <p>Check in</p>
+                <h6>Add dates</h6>
+            </div>
+            <div className='flex flex-col justify-center items-center flex-grow px-7 py-4 w-[8rem] h-[3.5rem] hover:bg-gray-200  rounded-full cursor-pointer'>
+                <p>Check out</p>
+                <h6>Add dates</h6>
+            </div>
+            <div className='flex justify-evenly items-center flex-grow px-7 py-4 w-[15rem] h-[3.5rem] hover:bg-gray-200  rounded-full cursor-pointer' >
+                <div>
+                    <p>Who</p>
+                    <h6>Add guests</h6>
+                </div>
+                <div className='w-[2rem] h-[2rem] bg-red-500 rounded-full items-center flex justify-center text-lg hover:bg-red-600 cursor-pointer'><CiSearch /></div>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+  )
+}
+
+export default Navbar

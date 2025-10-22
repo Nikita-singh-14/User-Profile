@@ -9,7 +9,7 @@ const HotelsData = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/hotels'); 
+        const response = await axios.get('https://user-profile-iota.vercel.app/api/hotels'); 
         setHotels(response.data);
         setLoading(false);
       } catch (err) {
@@ -31,7 +31,7 @@ const HotelsData = () => {
 
   return (
     <div className='hotel flex flex-col gap-5'>
-      <h1>Goa Tours Packages</h1>
+      <h1 className='text-2xl'>Goa Tours Packages</h1>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between'}} >
         {hotels.map((hotel) => (
