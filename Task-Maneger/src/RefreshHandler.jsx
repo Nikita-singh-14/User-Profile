@@ -12,7 +12,7 @@ const RefreshHandler = ({setIsAuthenticated}) => {
                 location.pathname === '/login' ||
                 location.pathname === '/signup'
             ) {
-                navigate('/home', {replace:false});
+                navigate('/ladingPage', {replace:false});
             }
         }
     }, [location, navigate, setIsAuthenticated])
