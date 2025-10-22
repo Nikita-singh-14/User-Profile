@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/ladingpage" element={<LadingPage />} />
         <Route path="/login"  element={<Login setIsAuthenticated={setIsAuthenticated}/>} />  //ye change kiya hai
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home"  element={isAuthenticated ? <Home /> : <Navigate to="/" />}/> //change huye hai private route hatayi hu jo ki extra file likha huaa hai.
+        <Route path="/home"  element={<Home/>}/> //change huye hai private route hatayi hu jo ki extra file likha huaa hai.
         
     
        

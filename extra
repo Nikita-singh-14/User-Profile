@@ -276,3 +276,7 @@ export default Navbar
   }
   
   export default Navbar
+
+
+
+  isAuthenticated ? <Home /> : <Navigate to="/" 
