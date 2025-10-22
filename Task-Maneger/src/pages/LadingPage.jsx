@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Star, ChevronLeft, ChevronRight, Menu } from 'lucide-react';
 import Button from '../component/Button';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 // Mock data structure to represent what the API would return
 const mockApiData = {
@@ -153,9 +154,10 @@ const LadingPage = () => {
     );
     
     return (
-        <div className="font-sans antialiased flex flex-col gap-20">
-            <Navigation />
-            <HeroSection />
+        <div className="font-sans antialiased flex flex-col">
+            <Navbar/>
+            <div className='flex flex-col gap-20'>
+                <HeroSection />
 
             <main className='flex flex-col gap-10 justify-center items-center'>
                 {/* Goa Tours Packages Section */}
@@ -280,6 +282,10 @@ const LadingPage = () => {
             </main>
 
             <Footer/>
+            </div>
+            
+            
+            
             
         </div>
     );
